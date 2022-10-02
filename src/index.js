@@ -5,14 +5,60 @@ function writeCity(event) {
   writeData();
 }
 
+function gpsCity(position) {
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
+  let apiKey = `cabdbda40038ba7d1165b953b1c7bd6c`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showData);
+}
+
+function handlegps() {
+  navigator.geolocation.getCurrentPosition(gpsCity);
+}
+
 function showData(response) {
   let temp = response.data.main.temp;
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
+  let cityGet = response.data.name;
   let wValue = response.data.weather[0].main;
-  let num = document.querySelector(".num");
+  if (wValue === "Clear") {
+    emoji.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  }
+  if (wValue === "Clouds") {
+    emoji.innerHTML = '<i class="fa-solid fa-cloud"></i>';
+  }
+  if (wValue === "Rain") {
+    emoji.innerHTML = '<i class="fa-solid fa-cloud-rain"></i>';
+  }
+  if (wValue === "Thunderstorm") {
+    emoji.innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>';
+  }
+  if (wValue === "Moderate Rain") {
+    emoji.innerHTML = '<i class="fa-solid fa-cloud-showers-heavy"></i>';
+  }
+  if (wValue === "light Rain") {
+    emoji.innerHTML = '<i class="fa-regular fa-cloud-rain"></i>';
+  }
+  if (wValue === "Few Clouds") {
+    emoji.innerHTML = '<i class="fa-solid fa-cloud"></i>';
+  }
+  if (wValue === "Broken Clouds") {
+    emoji.innerHTML = '<i class="fa-solid fa-cloud"></i>';
+  }
+  if (wValue === "Fog") {
+    emoji.innerHTML = '<i class="fa-solid fa-cloud-fog"></i>';
+  }
+  if (wValue === "Wind") {
+    emoji.innerHTML = '<i class="fa-solid fa-wind"></i>';
+  }
+  if (wValue === "Snow") {
+    emoji.innerHTML = '<i class="fa-solid fa-cloud-snow"></i>';
+  }
+  city.innerHTML = cityGet;
   weatherValue.innerHTML = wValue;
-  num.innerHTML = `${Math.round(temp)}°`;
+  num.innerHTML = `${Math.round(temp)}`;
   details.innerHTML = `Humidity: ${humidity}%
   <br/>Wind: ${wind}km/h`;
 }
@@ -31,7 +77,7 @@ let weekDays = [
   `Wednesday`,
   `Thursday`,
   `Friday`,
-  `Saturday`,
+  `Saturday`
 ];
 function dateSet() {
   let now = new Date();
@@ -42,8 +88,13 @@ function dateSet() {
 }
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", writeCity);
+let num = document.querySelector(".int");
 let city = document.querySelector("#city");
 let details = document.querySelector(".details");
 let weatherValue = document.querySelector(".wvalue");
+let degree = document.querySelector(".degreec");
+let emoji = document.querySelector("#emoji");
+let current = document.querySelector(".currentbutton");
+current.addEventListener("click", handlegps);
 dateSet();
 writeData();

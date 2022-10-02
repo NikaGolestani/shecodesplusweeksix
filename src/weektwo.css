@@ -31,23 +31,40 @@ span {
 }
 .navbar {
   background-color: #92b4ec;
+  color: #ffd24c;
+  font-weight: 1000;
+  font-family: cursive;
+  justify-content: center;
 }
 .num {
   font-size: 60px;
   display: block;
   color: #92b4ec;
 }
-.fa-sun {
-  color: #ffd24c;
+#emoji {
   font-size: 75px;
   display: block;
   position: relative;
-  top: -45px;
-  right: -75px;
+  top: -80px;
+  right: -30px;
 }
+
 .bottomdiv {
   position: relative;
   right: 3px;
+}
+
+.fa-sun {
+  color: #fcbd00b9;
+}
+.fa-cloud,
+.fa-cloud-bolt,
+.fa-cloud-showers-heavy,
+.fa-cloud-rain,
+.fa-cloud-snow,
+.fa-cloud-fog,
+.fa-wind {
+  color: #4e88e6a8;
 }
 
 .day {

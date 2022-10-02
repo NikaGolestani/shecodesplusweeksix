@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>weektwo</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-   
+    <script type="text/javascript" src="src/index.js"></script>
     <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -22,11 +22,8 @@
   </head>
   <body>
     <div class="container border main rounded-2">
-      <div class="row border navbar">
-        <a class="col-3">Paris</a>
-        <a class="col-3">Lisbon</a>
-        <a class="col-3">Sydney</a>
-        <a class="col-3">San Francisco</a>
+      <div class=" border navbar">
+        Weather App 
       </div>
       <form class="row flex-row" id="search-form">
         <div class=" col-9 row me-3 ms-3 m-1 p-0 ">
@@ -49,11 +46,11 @@
       <div class="row ms-1 p-0 ">
         <div class="col-3 p-1 m-1">
           <div class="today">
-            <h1 class="p-0 m-0" id="city">Lisbon</h1>
-            <h4 class="p-0 m-0 text-secondary "id="date">Tuesday 13:55</h4>
+            <h1 class="p-0 m-0" id="city">Istanbul</h1>
+            <h4 class="p-0 m-0 text-secondary "id="date">Tuesday 05:55</h4>
             <h4 class="p-0 text-secondary wvalue">Sunny</h4>
-            <span class="num" ><span class="degreec">23</span>°</span>
-            <i class="fa-solid fa-sun"></i>
+            <div class="degreec"><span class="num"><span class= "int">55</span>°</span></div>
+            <span id="emoji"><i class="fa-solid fa-sun"></i></span>
           </div>
         </div>
         <div class="col-8 row me-3 ms-3 ">
@@ -67,16 +64,15 @@
         <div class="row ms-1 p-0 bottomdiv">
           <div class="col-3 p-1 m-1">
             <div>
-              <div class="text-secondary today details ">Precipitation: null%
-<br/>Wind: nullkm/h</div>
+              <div class="text-secondary today details ">Precipitation: 55%
+<br/>Wind: 5km/h</div>
             </div>
           </div>
           <div class="col-8 row m-3">
-            <span class="text-secondary"><a href="https://github.com/NikaGolestani/shecodesplusweeksix">open-sourced</a> code by Nika Golestani</span>
+              <span class="text-secondary"><a href="https://github.com/NikaGolestani/shecodesplusweeksix">open-sourced</a> code by Nika Golestani</span>
         </div>
       </div>
     </div>
-</div> 
-<script type="text/javascript" src="src/index.js"></script>
+</div>
   </body>
 </html>

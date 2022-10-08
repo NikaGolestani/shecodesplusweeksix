@@ -111,22 +111,4 @@ current.addEventListener("click", handlegps);
 dateSet();
 writeData();
 
-//forcast
-function weekdate() {
-  let now = new Date();
-  let today = now.getDay();
-  let x = 0;
-  while (x < 5) {
-    if ((today = 6)) {
-      today = 0;
-    } else {
-      today = today + 1;
-    }
-    forcastdays.forEach((element) => {
-      element.innerHTML = weekDays[today];
-    });
-  }
-  x = x + 1;
-}
-let forcastdays = document.querySelectorAll(".day");
-weekdate();
+

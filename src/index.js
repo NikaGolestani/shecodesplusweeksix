@@ -115,14 +115,18 @@ writeData();
 function weekdate() {
   let now = new Date();
   let today = now.getDay();
-  forcastdays.forEach((element) => {
+  let x = 0;
+  while (x < 5) {
     if ((today = 6)) {
       today = 0;
     } else {
       today = today + 1;
     }
-    element.innerHTML = weekDays[today];
-  });
+    forcastdays.forEach((element) => {
+      element.innerHTML = weekDays[today];
+    });
+  }
+  x = x + 1;
 }
 let forcastdays = document.querySelectorAll(".day");
 weekdate();

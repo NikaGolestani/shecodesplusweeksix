@@ -83,8 +83,8 @@ body {
 .day {
   display: block;
   margin: 0 auto;
-  padding: 10px;
-  font-weight: 500;
+  padding-top: 20px;
+  font-weight: 900;
   color: #ffd24c;
 }
 .emoji {
@@ -104,7 +104,7 @@ body {
   border: 2px solid #c9d8ee;
 }
 .littletext {
-  margin-top: 20px;
+  margin-top: 5px;
   color: rgba(79, 79, 79, 0.585);
   display: block;
 }
@@ -112,4 +112,9 @@ body {
   margin: 0 auto;
   display: block;
   margin-bottom: 10px;
+}
+.forecastemoji {
+  font-size: 60px;
+  text-align: center;
+  display: block;
 }

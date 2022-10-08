@@ -65,6 +65,7 @@ function showData(response) {
   num.innerHTML = `${Math.round(temp)}`;
   details.innerHTML = `Humidity: ${humidity}%
   <br/>Wind: ${wind}km/h`;
+  getForecast(response.data.coord);
 }
 
 function writeData() {
@@ -109,6 +110,8 @@ let min = document.querySelector("#mainmin");
 let max = document.querySelector("#mainmax");
 current.addEventListener("click", handlegps);
 let forcastdays = document.querySelectorAll(".day");
+let forecastMinmax = document.querySelectorAll(".littletext");
+let forcastEmoji = document.querySelectorAll(".forecastemoji");
 //forcast
 function weekDate() {
   let today = now.getDay();
@@ -123,6 +126,62 @@ function weekDate() {
     today = today + 1;
     x = x + 1;
   }
+}
+
+function showDataForecast(response) {
+  x = 0;
+  while (x < 5) {
+    let forecastMin = response.data.daily[x + 1].temp.min;
+    let forecastMax = response.data.daily[x + 1].temp.max;
+    forecastMinmax[x].innerHTML = `${Math.round(forecastMax)} / ${Math.round(
+      forecastMin
+    )}`;
+    console.log(response.data.daily[x + 1].weather[0].main);
+    let forecastValue = response.data.daily[x + 1].weather[0].main;
+    if (forecastValue === "Clear") {
+      forcastEmoji[x].innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
+    if (forecastValue === "Clouds") {
+      forcastEmoji[x].innerHTML = '<i class="fa-solid fa-cloud"></i>';
+    }
+    if (forecastValue === "Rain") {
+      forcastEmoji[x].innerHTML = '<i class="fa-solid fa-cloud-rain"></i>';
+    }
+    if (forecastValue === "Thunderstorm") {
+      forcastEmoji[x].innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>';
+    }
+    if (forecastValue === "Moderate Rain") {
+      forcastEmoji[x].innerHTML =
+        '<i class="fa-solid fa-cloud-showers-heavy"></i>';
+    }
+    if (forecastValue === "light Rain") {
+      forcastEmoji[x].innerHTML = '<i class="fa-regular fa-cloud-rain"></i>';
+    }
+    if (forecastValue === "Few Clouds") {
+      forcastEmoji[x].innerHTML = '<i class="fa-solid fa-cloud"></i>';
+    }
+    if (forecastValue === "Broken Clouds") {
+      forcastEmoji[x].innerHTML = '<i class="fa-solid fa-cloud"></i>';
+    }
+    if (forecastValue === "Fog") {
+      forcastEmoji[x].innerHTML = '<i class="fa-solid fa-cloud-fog"></i>';
+    }
+    if (forecastValue === "Wind") {
+      forcastEmoji[x].innerHTML = '<i class="fa-solid fa-wind"></i>';
+    }
+    if (forecastValue === "Snow") {
+      forcastEmoji[x].innerHTML = '<i class="fa-solid fa-cloud-snow"></i>';
+    }
+    x = x + 1;
+  }
+}
+
+function getForecast(coords) {
+  let apiKey = `cabdbda40038ba7d1165b953b1c7bd6c`;
+  let lat = coords.lat;
+  let lon = coords.lon;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showDataForecast);
 }
 
 weekDate();

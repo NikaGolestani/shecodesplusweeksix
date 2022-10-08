@@ -110,3 +110,19 @@ let max = document.querySelector("#mainmax");
 current.addEventListener("click", handlegps);
 dateSet();
 writeData();
+
+//forcast
+function weekdate() {
+  let now = new Date();
+  let today = now.getDay();
+  forcastdays.forEach((element) => {
+    if ((today = 6)) {
+      today = 0;
+    } else {
+      today = today + 1;
+    }
+    element.innerHTML = weekDays[today];
+  });
+}
+let forcastdays = document.querySelectorAll(".day");
+weekdate();

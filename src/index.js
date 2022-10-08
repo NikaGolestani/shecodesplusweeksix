@@ -109,3 +109,22 @@ let min = document.querySelector("#mainmin");
 let max = document.querySelector("#mainmax");
 current.addEventListener("click", handlegps);
 let forcastdays = document.querySelectorAll(".day");
+//forcast
+function weekDate() {
+  let today = now.getDay();
+  let x = 0;
+  while (x < 5) {
+    if (6 === today) {
+      forcastdays[x].innerHTML = weekDays[0];
+      today = 0;
+    } else {
+      forcastdays[x].innerHTML = weekDays[today];
+    }
+    today = today + 1;
+    x = x + 1;
+  }
+}
+
+weekDate();
+dateSet();
+writeData();

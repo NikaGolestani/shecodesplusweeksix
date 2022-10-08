@@ -84,7 +84,6 @@ let weekDays = [
   `Saturday`,
 ];
 function dateSet() {
-  let now = new Date();
   let date = document.querySelector("#date");
   let hour = now.getHours();
   if (hour < 10) {
@@ -97,6 +96,7 @@ function dateSet() {
   date.innerHTML = `${weekDays[now.getDay()]} ${hour}:${minute}`;
 }
 let searchForm = document.querySelector("#search-form");
+let now = new Date();
 searchForm.addEventListener("submit", writeCity);
 let num = document.querySelector(".int");
 let city = document.querySelector("#city");
@@ -108,25 +108,23 @@ let current = document.querySelector(".currentbutton");
 let min = document.querySelector("#mainmin");
 let max = document.querySelector("#mainmax");
 current.addEventListener("click", handlegps);
-dateSet();
-writeData();
-
+let forcastdays = document.querySelectorAll(".day");
 //forcast
-function weekdate() {
-  let now = new Date();
+function weekDate() {
   let today = now.getDay();
   let x = 0;
   while (x < 5) {
-    if ((today = 6)) {
+    if (6 === today) {
+      forcastdays[x].innerHTML = weekDays[0];
       today = 0;
     } else {
-      today = today + 1;
+      forcastdays[x].innerHTML = weekDays[today];
     }
-    forcastdays.forEach((element) => {
-      element.innerHTML = weekDays[today];
-    });
+    today = today + 1;
+    x = x + 1;
   }
-  x = x + 1;
 }
-let forcastdays = document.querySelectorAll(".day");
-weekdate();
+
+weekDate();
+dateSet();
+writeData();

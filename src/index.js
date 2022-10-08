@@ -23,6 +23,8 @@ function showData(response) {
   let wind = response.data.wind.speed;
   let cityGet = response.data.name;
   let wValue = response.data.weather[0].main;
+  let mintemp = response.data.main.temp_min;
+  let maxtemp = response.data.main.temp_max;
   if (wValue === "Clear") {
     emoji.innerHTML = '<i class="fa-solid fa-sun"></i>';
   }
@@ -56,6 +58,8 @@ function showData(response) {
   if (wValue === "Snow") {
     emoji.innerHTML = '<i class="fa-solid fa-cloud-snow"></i>';
   }
+  min.innerHTML = Math.round(mintemp);
+  max.innerHTML = Math.round(maxtemp);
   city.innerHTML = cityGet;
   weatherValue.innerHTML = wValue;
   num.innerHTML = `${Math.round(temp)}`;
@@ -77,14 +81,20 @@ let weekDays = [
   `Wednesday`,
   `Thursday`,
   `Friday`,
-  `Saturday`
+  `Saturday`,
 ];
 function dateSet() {
   let now = new Date();
   let date = document.querySelector("#date");
-  date.innerHTML = `${
-    weekDays[now.getDay()]
-  } ${now.getHours()}:${now.getMinutes()}`;
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = "0" + hour;
+  }
+  let minute = now.getMinutes();
+  if (minute < 10) {
+    minute = "0" + minute;
+  }
+  date.innerHTML = `${weekDays[now.getDay()]} ${hour}:${minute}`;
 }
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", writeCity);
@@ -95,6 +105,8 @@ let weatherValue = document.querySelector(".wvalue");
 let degree = document.querySelector(".degreec");
 let emoji = document.querySelector("#emoji");
 let current = document.querySelector(".currentbutton");
+let min = document.querySelector("#mainmin");
+let max = document.querySelector("#mainmax");
 current.addEventListener("click", handlegps);
 dateSet();
 writeData();

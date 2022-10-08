@@ -5,6 +5,18 @@ input {
 span {
   text-align: center;
 }
+body {
+  background: linear-gradient(
+    to right,
+    #ffd24c 25%,
+    #ffe69a 50%,
+    #c9d8ee 75%,
+    #92b4ec 100%
+  );
+}
+.wapp {
+  background: #fff4;
+}
 .main {
   max-width: 750px;
   margin: 10px auto;
@@ -35,6 +47,7 @@ span {
   font-weight: 1000;
   font-family: cursive;
   justify-content: center;
+  width: 100%;
 }
 .num {
   font-size: 60px;
@@ -94,4 +107,9 @@ span {
   margin-top: 20px;
   color: rgba(79, 79, 79, 0.585);
   display: block;
+}
+.minmaxmain {
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 10px;
 }

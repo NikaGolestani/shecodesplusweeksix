@@ -20,8 +20,8 @@
     ></script>
   </head>
   <body>
-    <div class="container border main rounded-2">
-      <div class=" border navbar">
+    <div class="container border main rounded-3 p-0 wapp">
+      <div class=" border navbar rounded-3">
         Weather App 
       </div>
       <form class="row flex-row" id="search-form">
@@ -50,6 +50,7 @@
             <h4 class="p-0 text-secondary wvalue">Sunny</h4>
             <div class="degreec"><span class="num"><span class= "int">55</span>°</span></div>
             <span id="emoji"><i class="fa-solid fa-sun"></i></span>
+            <span class="text-secondary minmaxmain" ><span id="mainmin">min</span>° / <span id="mainmax">max</span>°</span>
           </div>
         </div>
         <div class="col-8 row me-3 ms-3 ">
@@ -60,7 +61,8 @@
           <div class="col-4 rounded-circle weekdiv"><span class="day">SATURDAY</span><i class="fa-solid fa-cloud-rain emoji"></i> <span class="secondary littletext">12/23</span></div>
           <div class="col-4 rounded-circle weekdiv"><span class="day">SUNDAY</span><i class="fa-solid fa-cloud-bolt emoji"></i> <span class="secondary littletext">12/23</span></div>
         </div>
-        <div class="row ms-1 p-0 bottomdiv">
+     
+        <div class="row ms-1 p-0 bottomdiv"> 
           <div class="col-3 p-1 m-1">
             <div>
               <div class="text-secondary today details ">Precipitation: 55%

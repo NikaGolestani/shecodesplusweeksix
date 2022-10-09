@@ -133,9 +133,9 @@ function showDataForecast(response) {
   while (x < 5) {
     let forecastMin = response.data.daily[x + 1].temp.min;
     let forecastMax = response.data.daily[x + 1].temp.max;
-    forecastMinmax[x].innerHTML = `${Math.round(forecastMax)} / ${Math.round(
+    forecastMinmax[x].innerHTML = `${Math.round(forecastMax)}° / ${Math.round(
       forecastMin
-    )}`;
+    )}°`;
     console.log(response.data.daily[x + 1].weather[0].main);
     let forecastValue = response.data.daily[x + 1].weather[0].main;
     if (forecastValue === "Clear") {

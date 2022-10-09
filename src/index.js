@@ -121,7 +121,7 @@ function weekDate() {
       forcastdays[x].innerHTML = weekDays[0];
       today = 0;
     } else {
-      forcastdays[x].innerHTML = weekDays[today];
+      forcastdays[x].innerHTML = weekDays[today + 1];
     }
     today = today + 1;
     x = x + 1;
